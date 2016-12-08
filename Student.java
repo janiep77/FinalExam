@@ -3,7 +3,7 @@
  */
 
 /**
- * @author s000191068
+ * @author janie_000
  *
  */
 public class Student {
@@ -82,5 +82,6 @@ public class Student {
 	public String toString(){
 		return firstName + lastName + ":	" + getCurrentAverage();
 	}
+	
 
 }

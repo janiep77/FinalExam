@@ -5,7 +5,7 @@ import java.util.ArrayList;
  */
 
 /**
- * @author s000191068
+ * @author janie_000
  *
  */
 public class Course {
@@ -19,7 +19,11 @@ public class Course {
 		this.teacherName = teacherName;
 	}
 	public boolean enrollStudent(Student s){
-		
+		if(s == null) return false;
+		else {
+			studentList.add(s);
+			return true;
+		}
 	}
 
 	/**
@@ -31,7 +35,7 @@ public class Course {
 
 
 	public int getNumEnrolled(){
-		studentList.size();
+		return studentList.size();
 	}
 
 	/**
@@ -87,6 +91,5 @@ public class Course {
 	public String toStringSortedByAverageGrade(){
 		
 	}
-	
 
 }

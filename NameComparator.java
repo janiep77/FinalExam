@@ -1,19 +1,24 @@
+import java.util.Comparator;
+
 /**
  * 
  */
 
 /**
- * @author s000191068
+ * @author janie_000
  *
  */
-public class NameComparator {
+public class NameComparator implements Comparator<Student> {
+	@Override
+	public int compare(Student e1, Student e2) {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		int compVal = e1.getLastName().compareTo(e2.getLastName());
+		if (compVal != 0)
+			return compVal;
 
+		return e1.getFirstName().compareTo(e2.getFirstName());
 	}
 
 }
+
+
