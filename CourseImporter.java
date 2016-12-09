@@ -1,5 +1,6 @@
-import java.net.MalformedURLException;
+
 import java.util.ArrayList;
+
 
 /**
  * 
@@ -11,46 +12,51 @@ import java.util.ArrayList;
  */
 public class CourseImporter {
 	private ArrayList<Course> courseList = new ArrayList<Course>();
-	
-	public CourseImporter(){
-		
+
+	public CourseImporter() {
+
 	}
-	
-	void printAverageGradeOrder(){
-		new GradeAverageComparator();
+
+	public void printAverageGradeOrder() {
+		System.out.println(courseList.get(0).toStringSortedByAverageGrade());
 	}
-	
-	void printInNameOrder(){
-		new NameComparator();
+
+	public void printInNameOrder() {
+		System.out.println(courseList.get(0).toString());
 	}
-	
-	void readCourseFile(String url){
+
+	public void readCourseFile(String url) {
 		NetworkFileReaderUtility fru = new NetworkFileReaderUtility();
-        try {
-			if(!fru.readFile(url)){
-			    System.err.println("Error reading url. Exiting");
-			    System.exit(1);
-			}
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
+
+		if (!fru.readFile(url)) {
+			System.err.println("Error reading url. Exiting");
+			System.exit(1);
 		}
 
 		String input = fru.getNextLine();
-		if(input == null) return; //nothing to process
-
-		while(input != null){
-			String[] course = input.split("\\\n");
-			Course c = new Course(course[0], course[1]);
+		if (input == null)
+			return; // nothing to process
+		String course = input;
+	
+		String teacher = fru.getNextLine();
+			
+		Course c = new Course(course, teacher);
+		input = fru.getNextLine();
+		while (input != null) {
+			
 			String[] name = input.split("\\s");
-			Student s = new Student(name[3], name[2]);
+			Student s = new Student(name[0], name[1]);
 
-			String grade = "";
-			while(!(grade = input).equals("-1")){
+			String grade = fru.getNextLine();
+			while (!grade.equals("-1")) {
+				
 				s.addGrade(Integer.parseInt(grade));
+				grade = fru.getNextLine();
 			}
 			c.enrollStudent(s);
 			courseList.add(c);
-		
+			input = fru.getNextLine();
+			
 		}
 
 	}

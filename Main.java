@@ -1,3 +1,4 @@
+/*
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,7 +13,7 @@ import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
-import javax.swing.JTextField;
+import javax.swing.JTextField; */
 
 /**
  * 
@@ -23,11 +24,12 @@ import javax.swing.JTextField;
  *
  */
 public class Main {
-	private JFrame frame;
+	/*private JFrame frame;
 	private JButton btnSend;
 	private JEditorPane txtArea;
 	private JTextField loc;
 	private JScrollPane scroller;
+	*/
 	/**
 	 * @param args
 	 */

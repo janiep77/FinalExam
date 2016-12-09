@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * 
@@ -86,10 +87,21 @@ public class Course {
 	}
 	
 	public String toString(){
-		
+		Collections.sort(studentList, new NameComparator());
+		String displayString = "Course Name: " + courseName + "\n" + "Teacher Name: " + teacherName + "\n";
+		for(int i = 0; i < studentList.size(); i++){
+			displayString += studentList.get(i) + "\n";
+		}
+		return displayString;
 	}
 	public String toStringSortedByAverageGrade(){
-		
+		Collections.sort(studentList, new GradeAverageComparator());
+		String displayString = "Course Name: " + courseName + "\n" + "Teacher Name: " + teacherName + "\n";
+		for(int i = 0; i < studentList.size(); i++){
+			displayString += studentList.get(i) + "\n";
+		}
+			
+		return displayString;
 	}
 
 }

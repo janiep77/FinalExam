@@ -4,9 +4,6 @@
  *
  */
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -19,7 +16,7 @@ public class NetworkFileReaderUtility {
 	
 
 	private ArrayList<String> lines = new ArrayList<String>();
-	private BufferedReader br;
+	
 
 	/**
 	 * This will return the next line of the text file.
@@ -28,13 +25,8 @@ public class NetworkFileReaderUtility {
 	 *         <code>null</code> if there are no more lines in the file.
 	 */
 	public String getNextLine() {
-		if(br == null) return null;
-	    try {
-	    	String line = br.readLine();
-	        if(line == null)
-	        br.close();
-	        return line;
-	     } catch (Exception e){ return null;}
+		if(lines.size() == 0) return null;
+		return lines.remove(0);
 	}
 
 	/**
@@ -47,7 +39,7 @@ public class NetworkFileReaderUtility {
 	 * cannot be read for other reasons.
 	 * @throws MalformedURLException 
 	 */
-	public boolean readFile(String URL) throws MalformedURLException {
+	public boolean readFile(String URL){
 		
 		HttpURLConnection con = null;
 		BufferedReader br = null;
@@ -63,11 +55,10 @@ public class NetworkFileReaderUtility {
 			br = new BufferedReader(new InputStreamReader(con.getInputStream()));
 			
 			String line = null;
-			String content = "";
 			while((line = br.readLine()) != null){
-				content += line + "\n";
+				lines.add(line);
 			}
-			System.err.println(content);
+	
 			
 			
 		} catch (MalformedURLException mue){
@@ -92,6 +83,11 @@ public class NetworkFileReaderUtility {
 		return true;
 	}
 	
-
+	public static void main (String args[]){
+		NetworkFileReaderUtility nfru = new NetworkFileReaderUtility();
+		nfru.readFile("http://huckleberry.mhu.edu/basicProgramming.txt");
+		String aLine = null;
+		while((aLine = nfru.getNextLine()) != null) System.out.println(aLine);
+	}
 
 }

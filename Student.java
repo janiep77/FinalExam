@@ -80,8 +80,8 @@ public class Student {
 	}
 	
 	public String toString(){
-		return firstName + lastName + ":	" + getCurrentAverage();
-	}
+		return lastName + ", " + firstName + ":	" + getCurrentAverage();
+	} 
 	
 
 }
