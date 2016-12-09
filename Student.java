@@ -31,7 +31,10 @@ public class Student {
 		sumOfGrades += grade;
 		numOfGrades++;
 	}
-	
+	/**
+	 * calculates the grade average for student
+	 * @return grade average
+	 */
 	public double getCurrentAverage(){
 		if(numOfGrades == 0){
 			return 0;
