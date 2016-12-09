@@ -16,15 +16,22 @@ public class CourseImporter {
 	public CourseImporter() {
 
 	}
-
+/**
+ * This method will print each course, with the students in each course sorted by Average Grade
+ */
 	public void printAverageGradeOrder() {
 		System.out.println(courseList.get(0).toStringSortedByAverageGrade());
 	}
-
+/**
+ * This method will print each course, with the students in each course sorted by Student name
+ */
 	public void printInNameOrder() {
 		System.out.println(courseList.get(0).toString());
 	}
-
+/**
+ * This method reads the given filename, and creates a course object full of students.
+ * @param url
+ */
 	public void readCourseFile(String url) {
 		NetworkFileReaderUtility fru = new NetworkFileReaderUtility();
 

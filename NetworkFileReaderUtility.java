@@ -19,7 +19,7 @@ public class NetworkFileReaderUtility {
 	
 
 	/**
-	 * This will return the next line of the text file.
+	 * This will return the next line of the text.
 	 * 
 	 * @return String that holds the next line in the text file,
 	 *         <code>null</code> if there are no more lines in the file.
@@ -34,8 +34,8 @@ public class NetworkFileReaderUtility {
 	 * different lines so that they can be retrieved by a call to
 	 * <code>getNextLine()</code>.
 	 * 
-	 * @param filename The name of the file to be read
-	 * @return True if the file can be read, false if the file does not exist or
+	 * @param URL The URL to be read
+	 * @return True if the URL can be read, false if the URL does not exist or
 	 * cannot be read for other reasons.
 	 * @throws MalformedURLException 
 	 */
@@ -83,6 +83,10 @@ public class NetworkFileReaderUtility {
 		return true;
 	}
 	
+	/**
+	 * test
+	 * @param args
+	 */
 	public static void main (String args[]){
 		NetworkFileReaderUtility nfru = new NetworkFileReaderUtility();
 		nfru.readFile("http://huckleberry.mhu.edu/basicProgramming.txt");

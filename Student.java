@@ -12,12 +12,21 @@ public class Student {
 	private int numOfGrades;
 	private int sumOfGrades;
 	
+	/**
+	 * Constructor for student
+	 * @param first
+	 * @param last
+	 */
 	public Student(String first, String last){
 		this.firstName = first;
 		this.lastName = last;
 		this.numOfGrades = 0;
 		this.sumOfGrades = 0;
 	}
+	/**
+	 * adds a grade to student
+	 * @param grade
+	 */
 	public void addGrade(int grade){
 		sumOfGrades += grade;
 		numOfGrades++;
@@ -78,7 +87,10 @@ public class Student {
 	public void setSumOfGrades(int sumofGrades) {
 		this.sumOfGrades = sumofGrades;
 	}
-	
+	/**
+	 * @overidetoString in class Object
+	 * @return String representation of this student 
+	 */
 	public String toString(){
 		return lastName + ", " + firstName + ":	" + getCurrentAverage();
 	} 

@@ -19,6 +19,12 @@ public class Course {
 		this.courseName = courseName;
 		this.teacherName = teacherName;
 	}
+	/**
+	 * This method enrolls the Student, s, in this course, assuming s is not null.
+	 * @param s - The Student object to be enrolled
+	 * @return True if the student was added correctly. False if there was an error
+	 */
+	
 	public boolean enrollStudent(Student s){
 		if(s == null) return false;
 		else {
@@ -33,7 +39,10 @@ public class Course {
 	public String getCourseName() {
 		return courseName;
 	}
-
+	/**
+	 * @returns the number of students currently enrolled in this course.
+	 */
+		
 
 	public int getNumEnrolled(){
 		return studentList.size();
@@ -85,7 +94,11 @@ public class Course {
 	public void setTeacher(String teacherName) {
 		this.teacherName = teacherName;
 	}
-	
+	/**
+	 * Returns a string holding the Course object, with students sorted by Name (last, then first)
+	 * @override toString in class Object
+	 * @return String representation of this course, sorted by name
+	 */
 	public String toString(){
 		Collections.sort(studentList, new NameComparator());
 		String displayString = "Course Name: " + courseName + "\n" + "Teacher Name: " + teacherName + "\n";
@@ -94,6 +107,10 @@ public class Course {
 		}
 		return displayString;
 	}
+	/**
+	 * Returns a string holding the Course object, with students sorted by Average Grade
+	 * @return String representation of this course, sorted by Average Grade
+	 */
 	public String toStringSortedByAverageGrade(){
 		Collections.sort(studentList, new GradeAverageComparator());
 		String displayString = "Course Name: " + courseName + "\n" + "Teacher Name: " + teacherName + "\n";
